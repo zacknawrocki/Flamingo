@@ -25,6 +25,7 @@ class Weather:
     def get_current_weather_response(self):
         weather_url = "https://api.openweathermap.org/data/2.5/weather?"
 
+        # Makes sure user's weather settings are configured
         try:
             weather_url = weather_url + "id=" + self.city + "&appid=" + self.api_key + "&units=" + self.unit
         except:
@@ -32,32 +33,30 @@ class Weather:
             weather_response += "You can do this by visiting [insert link] on your local network."
             return weather_response
 
+        # Get weather data
         response = requests.get(weather_url)
-
         if response.status_code == 200:
             data = response.json()
-
+            # Weather properties
             weather = data['main']
             temperature, feels_like = weather['temp'], weather['feels_like']
             humidity, pressure = weather['humidity'], weather['pressure']
             location = data['name']
             report = data['weather'][0]['description']
 
+            # Respond to user about the current weather
             weather_response = f"It is {temperature} degrees in {location} "
             weather_response += f"and feels like {feels_like} degrees, with {report}, "
             weather_response += f"a humidity of {humidity}, and a pressure of {pressure}."
-
             return weather_response
-
         else:
-            return "Sorry, I am unable to get weather at this time."
+            return "Sorry, I am unable to get the weather at this time."
 
     def get_daily_forecast(self):
         pass
 
     def get_weekly_forecast(self):
         pass
-
 
 
 w = Weather()
