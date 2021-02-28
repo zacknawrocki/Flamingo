@@ -7,10 +7,10 @@ Open-sourced, privacy-oriented smart home and technology hub
 
 
 
-* Voice Assistant - Typical Voice Assistant Features, plus Additional Features
-* Lighting - Normal lighting, colored lighting, themes, part mode, music integration
-* Personal DJ - Music Surround System with Light Effects, including Spotify
-* Narokflix - Curated, streaming service
+* Voice Assistant - Both typical and never-before-seen voice assistant features
+* Lighting - Normal lighting, colored lighting, themes, party modes, music integration
+* Personal DJ - Music surround system with light effects, including Spotify
+* Narokflix - Curated, streaming service, with option to add user videos, as well
 * Security Cameras
 * Universal Ad Blocker for Home Network
 * HVAC Control for Energy Savings
