@@ -2,7 +2,6 @@ import requests
 import json
 
 
-
 class Weather:
     def __init__(self, city=None, unit=None, api_key=None):
         self.city = city
@@ -25,7 +24,7 @@ class Weather:
     def get_current_weather_response(self):
         weather_url = "https://api.openweathermap.org/data/2.5/weather?"
 
-        # Makes sure user's weather settings are configured
+        # Make sure user's weather settings are configured
         try:
             weather_url = weather_url + "id=" + self.city + "&appid=" + self.api_key + "&units=" + self.unit
         except:
