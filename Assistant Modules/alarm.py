@@ -1,5 +1,6 @@
 import time
 import math
+from lights import Lights
 from pathlib import Path
 from playsound import playsound
 from datetime import datetime
@@ -7,7 +8,7 @@ from datetime import timedelta
 
 
 class Alarm:
-    def __init__(self, alarm_sound="zapsplat_emergency_nuclear_power_station_meltdown_alarm_42849.mp3"):
+    def __init__(self, alarm_sound="zachary_default_alarm.m4a"):
         # Locate mp3 file
         alarm_sound = str(Path.cwd().parent) + "/files/audio/alarm/" + alarm_sound
         self.alarm_sound = alarm_sound
@@ -65,10 +66,13 @@ class Alarm:
     def activate_alert(self):
         # Turn on lights
         # Play alert
-        playsound(self.alarm_sound)
+        playsound(self.alarm_sound, block=False)
+        print(1)
+        l = Lights(["192.168.1.22", "192.168.1.23"])
+        l.flicker_lights(16, "on")
         # Flicker lights in between alert
         # Do this as a loop until turned off
 
 
 a = Alarm()
-a.set_alarm("20:54")
+a.set_alarm("20:31")
