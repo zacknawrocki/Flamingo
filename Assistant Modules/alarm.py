@@ -67,7 +67,6 @@ class Alarm:
         # Turn on lights
         # Play alert
         playsound(self.alarm_sound, block=False)
-        print(1)
         l = Lights(["192.168.1.22", "192.168.1.23"])
         l.flicker_lights(16, "on")
         # Flicker lights in between alert
