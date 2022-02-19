@@ -6,6 +6,7 @@ Open-sourced, privacy-oriented smart home and technology hub
 * Personal DJ - Music surround system with light effects, including Spotify
 * Narokflix - Curated, streaming service, with option to add user videos, as well
 * Security Cameras
+* Offline speech recognition with [Vosk](https://alphacephei.com/vosk/)
 * Universal Ad Blocker for Home Network
 * HVAC Control for Energy Savings
 * Different Temperature Comfort Zones for Occupants in the Same Room
