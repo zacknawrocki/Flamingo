@@ -30,11 +30,15 @@ class Lights:
         if end == "on":
             asyncio.run(self.all_lights_on())
 
+    def lights_on(self):
+        asyncio.run(self.all_lights_on())
 
-
-
+    def lights_off(self):
+        asyncio.run(self.all_lights_off())
 
 
 if __name__ == "__main__":
     lights = Lights()
     lights.flicker_lights(16, "on")
+    lights.lights_off()
+    lights.lights_on()
