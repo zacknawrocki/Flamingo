@@ -27,4 +27,6 @@ class Timer:
         # For now, just print the response. Eventually, this will be sent to pi for TTS response
         print(message)
 
-t = Timer(2, 30)
+
+if __name__ == '__main__':
+    t = Timer(0, 10)

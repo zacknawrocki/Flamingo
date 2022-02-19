@@ -3,8 +3,9 @@ import asyncio
 import time
 
 class Lights:
-    def __init__(self, normal_light_ips=None):
-        self.normal_ips = normal_light_ips
+    def __init__(self):
+        # search for ips of kasa smart plugs
+        self.normal_ips = list(asyncio.run(kasa.Discover.discover()).keys())
 
     async def all_lights_on(self):
         for ip in self.normal_ips:
@@ -35,5 +36,5 @@ class Lights:
 
 
 if __name__ == "__main__":
-    l = Lights(["192.168.1.22", "192.168.1.23"])
-    l.flicker_lights(16, "on")
+    lights = Lights()
+    lights.flicker_lights(16, "on")
