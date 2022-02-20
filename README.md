@@ -1,15 +1,15 @@
 # Flamingo
 Open-sourced, privacy-oriented smart home and technology hub
 
-* Voice Assistant - Both typical and never-before-seen voice assistant features
-* Lighting - Normal lighting, colored lighting, themes, party modes, music integration
+* Voice Assistant - Both typical and unique voice assistant features
+* Lighting - Normal lighting, colored lighting, themes, party modes, and music integration
 * Personal DJ - Music surround system with light effects, including Spotify
 * Narokflix - Curated, streaming service, with option to add user videos, as well
-* Security Cameras
+* Security cameras
 * Offline speech recognition with [Vosk](https://alphacephei.com/vosk/)
-* Universal Ad Blocker for Home Network
-* HVAC Control for Energy Savings
-* Different Temperature Comfort Zones for Occupants in the Same Room
+* Universal ad blocker for home network
+* HVAC control for energy savings
+* Different temperature comfort zones for occupants in the same room
 * Portal - Front-end Flamingo manager, easy to use
 
 ## Installation
