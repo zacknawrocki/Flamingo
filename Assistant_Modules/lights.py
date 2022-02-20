@@ -2,6 +2,7 @@ import kasa
 import asyncio
 import time
 
+
 class Lights:
     def __init__(self):
         # search for ips of kasa smart plugs

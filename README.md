@@ -23,4 +23,9 @@ From there, you can install dependencies with
 ```buildoutcfg
 poetry install
 ```
+## Run
+To run Flamingo, use the command
+```buildoutcfg
+poetry run python main.py
+```
 

@@ -110,6 +110,20 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "sounddevice"
+version = "0.4.4"
+description = "Play and Record Sound with Python"
+category = "main"
+optional = false
+python-versions = ">=3"
+
+[package.dependencies]
+CFFI = ">=1.0"
+
+[package.extras]
+numpy = ["numpy"]
+
+[[package]]
 name = "vosk"
 version = "0.3.32"
 description = "Offline open source speech recognition API based on Kaldi and Vosk"
@@ -135,7 +149,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "3.9"
-content-hash = "ebd37bf4af4b10f81adc0c3b49bc372533bb3125ad9add6404aaf173dd9ec65c"
+content-hash = "b6288edc623fb1b49af784078724057fb85e83ea1f5efe3106ddc4d327963681"
 
 [metadata.files]
 anyio = [
@@ -223,6 +237,13 @@ python-kasa = [
 sniffio = [
     {file = "sniffio-1.2.0-py3-none-any.whl", hash = "sha256:471b71698eac1c2112a40ce2752bb2f4a4814c22a54a3eed3676bc0f5ca9f663"},
     {file = "sniffio-1.2.0.tar.gz", hash = "sha256:c4666eecec1d3f50960c6bdf61ab7bc350648da6c126e3cf6898d8cd4ddcd3de"},
+]
+sounddevice = [
+    {file = "sounddevice-0.4.4-py3-none-any.whl", hash = "sha256:66bb36220f6cf280d5f8937c68568a0181690c47e49c5081fa060e25a6daf875"},
+    {file = "sounddevice-0.4.4-py3-none-macosx_10_6_x86_64.macosx_10_6_universal2.whl", hash = "sha256:4fcf587ed461b3c1451c9574985781e56ec8db6538a97533b8a320ff61740bee"},
+    {file = "sounddevice-0.4.4-py3-none-win32.whl", hash = "sha256:6907cd03ff93afa5a1c8851b8d4dd361bc15e0edefba4d5c5b46bf09b4979709"},
+    {file = "sounddevice-0.4.4-py3-none-win_amd64.whl", hash = "sha256:6cad07e0e9212448a8573f9777abd94b656597d03c14caec4952e97b99d7dbd9"},
+    {file = "sounddevice-0.4.4.tar.gz", hash = "sha256:f690f5aa418a56268c7bdbc97d697c85add0134c5c79d44b8a2ad7a1b85da789"},
 ]
 vosk = [
     {file = "vosk-0.3.32-py3-none-linux_armv7l.whl", hash = "sha256:12978cd72ef01923434e42a26b572a1e4ffbb90aaa41e71fdbd990da612b929f"},

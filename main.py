@@ -1,3 +1,4 @@
+from Assistant_Brain.speech_recognition import SpeechRecognition
 from Assistant_Modules.lights import Lights
 import urllib.request
 import zipfile
@@ -28,12 +29,20 @@ def setup_speech_recognition():
             orig_sr_folder = f"{sr_model_path}vosk-model-small-en-us-0.15"
             new_sr_folder = f"{sr_model_path}sr_model"
             for file in os.listdir(orig_sr_folder):
-                shutil.move(os.path.join(orig_sr_folder, file), new_sr_folder)
+                print(os.path.join(orig_sr_folder, file))
+                print(new_sr_folder)
+                shutil.move(os.path.join(orig_sr_folder, file), os.path.join(new_sr_folder, file))
             os.remove(sr_zip_path)
             os.rmdir(orig_sr_folder)
 
 
-if __name__ == '__main__':
+def main():
     init_objects = initialize_home()
     lights = init_objects["lights"]
-    #start_listening()
+    lights.lights_on()
+    sr = SpeechRecognition()
+    sr.start_listening()
+
+
+if __name__ == '__main__':
+    main()
