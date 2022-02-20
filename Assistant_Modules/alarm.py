@@ -8,10 +8,11 @@ from datetime import timedelta
 
 
 class Alarm:
-    def __init__(self, alarm_sound="zachary_default_alarm.m4a"):
+    def __init__(self):
         # Locate mp3 file
-        alarm_sound = str(Path.cwd().parent) + "/files/audio/alarm/" + alarm_sound
-        self.alarm_sound = alarm_sound
+        current_path = str(Path.cwd().parent)
+        self.alarm_file = "zachary_default_alarm.m4a"
+        self.alarm_sound = f"{current_path}/files/audio/alarm/{self.alarm_file}"
 
     def set_alarm_sound(self, alarm_sound):
         self.alarm_sound = alarm_sound
@@ -67,11 +68,12 @@ class Alarm:
         # Turn on lights
         # Play alert
         playsound(self.alarm_sound, block=False)
-        l = Lights(["192.168.1.22", "192.168.1.23"])
-        l.flicker_lights(16, "on")
+        all_lights = Lights()
+        all_lights.flicker_lights(16, "on")
         # Flicker lights in between alert
         # Do this as a loop until turned off
 
 
-a = Alarm()
-a.set_alarm("20:31")
+if __name__ == "__main__":
+    a = Alarm()
+    a.set_alarm("17:00")

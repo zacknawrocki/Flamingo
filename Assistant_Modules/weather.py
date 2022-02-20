@@ -58,8 +58,8 @@ class Weather:
         pass
 
 
-w = Weather()
-current_weather = w.get_current_weather_response()
+if __name__ == '__main__':
+    w = Weather()
+    current_weather = w.get_current_weather_response()
 
-print(current_weather)
-
+    print(current_weather)

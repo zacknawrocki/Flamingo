@@ -1,3 +1,4 @@
+from Assistant_Brain.interpret_speech import InterpretSpeech
 import sounddevice as sd
 import queue
 import vosk
@@ -9,6 +10,7 @@ class SpeechRecognition:
     def __init__(self, model_path=f"Assistant_Brain/models/sr_model"):
         self.q = queue.Queue()
         self.model_path = model_path
+        self.interpreter = InterpretSpeech()
 
     def callback(self, indata, frames, time, status):
         """This is called (from a separate thread) for each audio block."""
@@ -30,11 +32,10 @@ class SpeechRecognition:
             while True:
                 data = self.q.get()
                 if rec.AcceptWaveform(data):
-                    print(rec.Result())
+                    speech_result = rec.Result()
+                    print(speech_result)
+                    assistant_called = self.interpreter.wait_for_wakeword(speech_result)
+                    if assistant_called:
+                        self.interpreter.process_command(speech_result)
                 else:
                     print(rec.PartialResult())
-
-
-if __name__ == "__main__":
-    sr = SpeechRecognition("models/sr_model")
-    sr.start_listening()

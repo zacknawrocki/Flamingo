@@ -39,7 +39,6 @@ def setup_speech_recognition():
 def main():
     init_objects = initialize_home()
     lights = init_objects["lights"]
-    lights.lights_on()
     sr = SpeechRecognition()
     sr.start_listening()
 
