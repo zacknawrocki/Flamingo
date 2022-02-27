@@ -23,13 +23,12 @@ class Weather:
 
     def get_current_weather_response(self):
         weather_url = "https://api.openweathermap.org/data/2.5/weather?"
-
         # Make sure user's weather settings are configured
         try:
-            weather_url = weather_url + "id=" + self.city + "&appid=" + self.api_key + "&units=" + self.unit
+            weather_url = f"{weather_url}id={self.city}&appid={self.api_key}&units={self.unit}"
         except:
-            weather_response = "In order to get the weather, you must first set up your weather settings. "
-            weather_response += "You can do this by visiting [insert link] on your local network."
+            weather_response = "In order to get the weather, you must first set up your weather settings. "\
+                               "You can do this by visiting [insert link] on your local network."
             return weather_response
 
         # Get weather data
@@ -52,14 +51,22 @@ class Weather:
             return "Sorry, I am unable to get the weather at this time."
 
     def get_daily_forecast(self):
-        pass
+        weather_url = "https://api.openweathermap.org/data/2.5/onecall?"
+        # Make sure user's weather settings are configured
+        try:
+            weather_url = f"{weather_url}id={self.city}&appid={self.api_key}&units={self.unit}"
+        except:
+            weather_response = "In order to get the weather, you must first set up your weather settings. "\
+                               "You can do this by visiting [insert link] on your local network."
+            return weather_response
+        # get string result
 
     def get_weekly_forecast(self):
         pass
 
 
 if __name__ == '__main__':
-    w = Weather()
+    w = Weather(city=None, unit="imperial", api_key=None)
     current_weather = w.get_current_weather_response()
 
     print(current_weather)

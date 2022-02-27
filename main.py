@@ -1,4 +1,5 @@
 from Assistant_Brain.speech_recognition import SpeechRecognition
+from Assistant_Modules.weather import Weather
 from Assistant_Modules.lights import Lights
 import urllib.request
 import zipfile
@@ -9,7 +10,9 @@ import os
 def initialize_home():
     init_objs = dict()
     init_lights = Lights()
+    init_weather = Weather(city=None, unit="imperial", api_key=None)
     init_objs["lights"] = init_lights
+    init_objs["weather"] = init_weather
     # download default speech_recognition model, if not already downloaded, or
     # set model to user's preference
     setup_speech_recognition()
@@ -38,8 +41,7 @@ def setup_speech_recognition():
 
 def main():
     init_objects = initialize_home()
-    lights = init_objects["lights"]
-    sr = SpeechRecognition()
+    sr = SpeechRecognition(init_objects)
     sr.start_listening()
 
 

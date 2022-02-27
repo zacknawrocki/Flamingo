@@ -11,6 +11,7 @@ python-kasa = "^0.4.1"
 vosk = "^0.3.32"
 sounddevice = "^0.4.4"
 pyobjc = "^8.2"
+gTTS = "^2.2.3"
 
 [tool.poetry.dev-dependencies]
 

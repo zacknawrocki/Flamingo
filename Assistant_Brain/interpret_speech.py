@@ -1,6 +1,8 @@
 from playsound import playsound
 from pathlib import Path
+from gtts import gTTS
 import json
+import os
 
 
 class InterpretSpeech:
@@ -21,7 +23,32 @@ class InterpretSpeech:
             assistant_called = True
         return assistant_called
 
-    def process_command(self, voice_command):
+    def process_command(self, voice_command, flamingo_tools):
         command = json.loads(voice_command)
-        print(command["text"])
+        command_followed = False
+        print(f"Flamingo received this command: {command['text']}")
+
+        # For now, just test out some light commands
+        lights = flamingo_tools["lights"]
+        weather = flamingo_tools["weather"]
+
+        if "on" in voice_command:
+            lights.lights_on()
+            command_followed = True
+        if "off" in voice_command:
+            lights.lights_off()
+            command_followed = True
+        if "weather" in voice_command:
+            self.respond(weather.get_current_weather_response())
+            command_followed = True
+
+        return command_followed
+
+    def respond(self, response_text):
+        response = gTTS(response_text)
+        response.save(".response.mp3")
+        playsound(".response.mp3", block=False)
+        os.remove(".response.mp3")
+
+
 
